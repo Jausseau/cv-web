@@ -1,0 +1,67 @@
+.timeline {
+  display: grid;
+  gap: 22px;
+}
+
+.timeline-item {
+  padding-left: 18px;
+  border-left: 3px solid #3f6f68;
+}
+
+.timeline-item span {
+  display: block;
+  margin-bottom: 12px;
+  color: #65716e;
+}
+
+.timeline-item ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: #364541;
+  line-height: 1.55;
+}
+
+.skill-list,
+.project-list {
+  display: grid;
+  gap: 18px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #cadcd8;
+  border-radius: 999px;
+  background: #eff7f4;
+  color: #28524b;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.project-list section {
+  padding: 18px;
+  border-radius: 8px;
+  background: #f7f4ee;
+}
+
+.muted {
+  margin-bottom: 0;
+  color: #65716e;
+  line-height: 1.55;
+}
+
+.project-list p {
+  margin-bottom: 0;
+  color: #65716e;
+  line-height: 1.55;
+}

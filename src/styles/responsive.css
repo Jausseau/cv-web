@@ -1,0 +1,16 @@
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(100% - 24px, 1120px);
+    padding-top: 18px;
+  }
+
+  .hero-section,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: 24px;
+  }
+}

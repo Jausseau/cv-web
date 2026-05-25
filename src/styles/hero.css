@@ -1,0 +1,96 @@
+.hero-copy {
+  max-width: 720px;
+}
+
+.eyebrow,
+.status-label,
+.timeline-item > p {
+  margin: 0;
+  color: #65716e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.role {
+  margin-bottom: 18px;
+  color: #b14d2f;
+  font-size: clamp(1.35rem, 4vw, 2.2rem);
+  font-weight: 700;
+}
+
+.summary {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: #364541;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.skeleton-line,
+.skeleton-block {
+  display: block;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ded8cc 25%, #f4efe7 37%, #ded8cc 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+.skeleton-line {
+  border-radius: 999px;
+}
+
+.skeleton-block {
+  max-width: 680px;
+  height: 3.5rem;
+  border-radius: 8px;
+}
+
+.skeleton-line--eyebrow {
+  width: 180px;
+  height: 0.78rem;
+  margin-bottom: 18px;
+}
+
+.skeleton-line--title {
+  width: min(640px, 100%);
+  height: clamp(3rem, 9vw, 6.8rem);
+  border-radius: 8px;
+}
+
+.skeleton-line--role {
+  width: min(360px, 70%);
+  height: clamp(1.35rem, 4vw, 2.2rem);
+  margin-bottom: 18px;
+}
+
+.status-panel {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 8px;
+}
+
+.status-panel strong {
+  display: block;
+  margin-top: 6px;
+  color: #182128;
+  font-size: 1.15rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line,
+  .skeleton-block {
+    animation: none;
+  }
+}

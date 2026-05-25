@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: Jausseau/platform-ci/.github/workflows/node-checks.yml@master
+    with:
+      node-version: "22"
