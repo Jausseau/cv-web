@@ -34,14 +34,16 @@ pnpm build
 
 ## Deployment
 
-Deployment is intentionally not enabled yet. Once the Cloudflare Pages project
-and repository secrets are configured, add a deployment workflow that calls:
+Deployment is wired into CI but disabled by default. The `deploy` job runs only
+when `CLOUDFLARE_DEPLOY_ENABLED` is set to `true`.
 
-```yaml
-uses: Jausseau/platform-ci/.github/workflows/cloudflare-pages-deploy.yml@master
-```
-
-Required GitHub secrets:
+Required GitHub repository secrets:
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
+
+Required GitHub repository variables:
+
+- `CLOUDFLARE_DEPLOY_ENABLED=true`
+- `CLOUDFLARE_PAGES_PROJECT_NAME=cv-web`
+- `VITE_API_BASE_URL=https://your-worker-url.example`

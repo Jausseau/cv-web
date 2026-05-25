@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -14,3 +15,19 @@ jobs:
     uses: Jausseau/platform-ci/.github/workflows/node-checks.yml@master
     with:
       node-version: "22"
+
+  deploy:
+    needs: checks
+    if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/master' && vars.CLOUDFLARE_DEPLOY_ENABLED == 'true' && vars.CLOUDFLARE_PAGES_PROJECT_NAME != '' && vars.VITE_API_BASE_URL != '' }}
+    permissions:
+      contents: read
+      deployments: write
+    uses: Jausseau/platform-ci/.github/workflows/cloudflare-pages-deploy.yml@master
+    with:
+      project-name: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
+      environment: production
+      dist-directory: dist
+      build-command: VITE_API_BASE_URL="${{ vars.VITE_API_BASE_URL }}" pnpm build
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
