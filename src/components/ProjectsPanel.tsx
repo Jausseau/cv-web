@@ -26,7 +26,15 @@ export function ProjectsPanel() {
 function ProjectCard(props: { project: Project }) {
   return (
     <section>
-      <h3>{props.project.name}</h3>
+      <h3>
+        <Show when={props.project.href} fallback={props.project.name}>
+          {(href) => (
+            <a href={href()} target="_blank" rel="noreferrer">
+              {props.project.name}
+            </a>
+          )}
+        </Show>
+      </h3>
       <p>{props.project.description}</p>
     </section>
   );

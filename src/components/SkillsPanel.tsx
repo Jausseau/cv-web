@@ -3,15 +3,15 @@ import { For } from 'solid-js';
 const skillGroups = [
   {
     label: 'Frontend',
-    values: ['Solid', 'TypeScript', 'Responsive UI'],
+    values: ['TypeScript', 'React', 'Angular', 'Solid'],
   },
   {
     label: 'Backend',
-    values: ['Hono', 'Workers', 'API contracts'],
+    values: ['NodeJS', 'Hono', 'C#'],
   },
   {
     label: 'Delivery',
-    values: ['GitHub Actions', 'Cloudflare', 'CI/CD'],
+    values: ['Cloudflare Workers', 'GitHub Actions', 'CI/CD'],
   },
 ];
 
