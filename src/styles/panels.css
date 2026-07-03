@@ -65,3 +65,9 @@
   color: #65716e;
   line-height: 1.55;
 }
+
+.project-list h3 a {
+  color: inherit;
+  text-decoration-color: #b14d2f;
+  text-underline-offset: 3px;
+}

@@ -27,6 +27,45 @@
   line-height: 1.65;
 }
 
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.hero-location {
+  margin-right: 4px;
+  color: #65716e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero-link {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #d9d3c7;
+  border-radius: 999px;
+  background: #fffdf9;
+  color: #28524b;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.hero-link:hover,
+.hero-link:focus-visible {
+  border-color: #3f6f68;
+  background: #eff7f4;
+}
+
 .skeleton-line,
 .skeleton-block {
   display: block;

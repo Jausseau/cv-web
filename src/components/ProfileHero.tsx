@@ -1,8 +1,24 @@
-import { Match, Switch } from 'solid-js';
+import { For, Match, Switch } from 'solid-js';
 import { useProfile } from '../hooks/useProfile';
+import type { Profile } from '../profileApi';
 
+type ProfileLink = Profile['links'][number];
+
+const fallbackName = 'Alexandre RAHER';
+const fallbackRole = 'Web Developer';
 const fallbackSummary =
-  'A production-shaped CV website built with Solid, Hono, GitHub Actions, and Cloudflare.';
+  'Eight years of web development experience, now building and shipping complete products end to end.';
+const fallbackLocation = 'France';
+const fallbackLinks: ProfileLink[] = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/Jausseau',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/alexandre-raher',
+  },
+];
 
 export function ProfileHero() {
   const { profile } = useProfile();
@@ -14,9 +30,11 @@ export function ProfileHero() {
       </Match>
       <Match when={!profile.loading}>
         <ProfileHeroContent
-          name={profile()?.name ?? 'Your Name'}
-          role={profile()?.role ?? 'Web Developer'}
+          name={profile()?.name ?? fallbackName}
+          role={profile()?.role ?? fallbackRole}
           summary={profile()?.summary ?? fallbackSummary}
+          location={profile()?.location ?? fallbackLocation}
+          links={profile()?.links ?? fallbackLinks}
         />
       </Match>
     </Switch>
@@ -27,6 +45,8 @@ type ProfileHeroContentProps = {
   name: string;
   role: string;
   summary: string;
+  location: string;
+  links: ProfileLink[];
 };
 
 function ProfileHeroContent(props: ProfileHeroContentProps) {
@@ -36,6 +56,16 @@ function ProfileHeroContent(props: ProfileHeroContentProps) {
       <h1 id="page-title">{props.name}</h1>
       <p class="role">{props.role}</p>
       <p class="summary">{props.summary}</p>
+      <div class="hero-meta">
+        <span class="hero-location">{props.location}</span>
+        <For each={props.links}>
+          {(link) => (
+            <a class="hero-link" href={link.href} target="_blank" rel="noreferrer">
+              {link.label}
+            </a>
+          )}
+        </For>
+      </div>
     </div>
   );
 }
