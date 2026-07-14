@@ -7,7 +7,7 @@ const skillGroups = [
   },
   {
     label: 'Backend',
-    values: ['NodeJS', 'Hono', 'C#'],
+    values: ['NodeJS', 'Hono', 'C#', '.NET Core', 'PostgreSQL'],
   },
   {
     label: 'Delivery',

@@ -1,6 +1,7 @@
 export type Profile = {
   name: string;
   role: string;
+  tagline: string;
   location: string;
   summary: string;
   links: Array<{

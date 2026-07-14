@@ -3,6 +3,7 @@ import type { Profile } from '../profileApi';
 const profileFixture: Profile = {
   name: 'Ada Lovelace',
   role: 'Frontend Platform Engineer',
+  tagline: 'Founder of Analytical Engines Ltd',
   location: 'London, UK',
   summary: 'Builds thoughtful product interfaces with careful API contracts.',
   links: [

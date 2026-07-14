@@ -30,12 +30,13 @@ describe('profile components', () => {
 
     expect(screen.getByRole('heading', { level: 1, name: 'Loading profile' })).toBeTruthy();
     expect(screen.queryByText('Alexandre RAHER')).toBeNull();
-    expect(screen.queryByText('Web Developer')).toBeNull();
+    expect(screen.queryByText('Senior Full-Stack Developer')).toBeNull();
 
     response.resolve(profileResponse(profile));
 
     expect(await screen.findByRole('heading', { level: 1, name: profile.name })).toBeTruthy();
     expect(screen.getByText(profile.role)).toBeTruthy();
+    expect(screen.getByText(profile.tagline)).toBeTruthy();
     expect(screen.getByText(profile.summary)).toBeTruthy();
   });
 
